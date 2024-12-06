@@ -1,0 +1,135 @@
+/* General styles */
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: hsl(0, 0%, 95%);
+    animation: fadeIn 1s ease-in-out; /* Page load animation */
+}
+#calculator {
+    font-family: Arial, sans-serif;
+    background-color: hsl(0, 0%, 15%);
+    border-radius: 15px;
+    max-width: 500px;
+    overflow: hidden;
+    width: 90%; /* Adjust for smaller screens */
+    transform: scale(0.9); /* Initial scale */
+    animation: popIn 0.6s ease-in-out forwards; /* Animation for entry */
+}
+#display {
+    width: 100%;
+    padding: 20px;
+    font-size: 3rem; /* Adjusted for smaller screens */
+    text-align: left;
+    border: none;
+    color: white;
+    background-color: hsl(0, 0%, 20%);
+    animation: slideIn 0.7s ease-out; /* Slide-in animation */
+}
+#keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 25px;
+}
+button {
+    width: 100%; /* Responsive size */
+    aspect-ratio: 1 / 1; /* Maintain square shape */
+    border-radius: 50px;
+    border: none;
+    background-color: hsl(0, 0%, 30%);
+    color: white;
+    font-size: 2rem; /* Adjust for smaller screens */
+    font-weight: bold;
+    cursor: pointer;
+    transform: scale(1); /* Default size */
+    transition: transform 0.2s, background-color 0.2s; /* Smooth transition */
+}
+button:hover {
+    background-color: hsl(0, 0%, 40%);
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+button:active {
+    background-color: hsl(0, 0%, 50%);
+    transform: scale(0.95); /* Slight shrink on click */
+}
+.operator-btn {
+    background-color: hsl(35, 100%, 55%);
+}
+.operator-btn:hover {
+    background-color: hsl(35, 100%, 65%);
+}
+.operator-btn:active {
+    background-color: hsl(35, 100%, 75%);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    #display {
+        font-size: 2.5rem;
+    }
+    button {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #calculator {
+        border-radius: 10px;
+    }
+    #display {
+        font-size: 2rem;
+        padding: 15px;
+    }
+    button {
+        font-size: 1.5rem;
+        border-radius: 25px;
+    }
+    #keys {
+        gap: 5px;
+    }
+}
+
+@media (orientation: landscape) and (max-height: 480px) {
+    #display {
+        font-size: 1.5rem;
+        padding: 10px;
+    }
+    button {
+        font-size: 1rem;
+    }
+}
